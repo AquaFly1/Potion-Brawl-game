@@ -12,8 +12,20 @@ config_version=5
 
 config/name="New Game Project"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+
+[aseprite_importers]
+
+aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://cq20i26dwbgwx"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
