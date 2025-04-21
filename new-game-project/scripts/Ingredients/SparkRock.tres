@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://1nsnqp78ei5r"]
+
+[ext_resource type="Script" uid="uid://llbrnwtr0fw6" path="res://scripts/Ingredient.gd" id="1_bmby5"]
+[ext_resource type="Texture2D" uid="uid://bhqe3lj1oi508" path="res://textures/SparkRock.aseprite" id="2_emkka"]
+
+[resource]
+script = ExtResource("1_bmby5")
+ing_name = "SparkRock"
+effect = Array[String]([])
+sprite = ExtResource("2_emkka")
+metadata/_custom_type_script = "uid://llbrnwtr0fw6"

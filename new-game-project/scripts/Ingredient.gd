@@ -1,5 +1,10 @@
-extends Node
+extends Resource
 
+class_name Ingredient
+
+@export var ing_name: String
+@export var effect: Array[String]
+@export var sprite: Texture2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
