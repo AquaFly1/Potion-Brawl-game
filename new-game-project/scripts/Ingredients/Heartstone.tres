@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://csj1igu25cit"]
 
 [ext_resource type="Script" uid="uid://llbrnwtr0fw6" path="res://scripts/Ingredient.gd" id="1_1jhqp"]
-[ext_resource type="Texture2D" uid="uid://cs35mh8kqr67v" path="res://textures/HeartStone.aseprite" id="2_q7scy"]
+[ext_resource type="Texture2D" uid="uid://cs35mh8kqr67v" path="res://textures/cards/HeartStone.aseprite" id="2_q7scy"]
 
 [resource]
 script = ExtResource("1_1jhqp")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://x5co1s2dd4ac"]
+
+[ext_resource type="Script" uid="uid://yc0iiphd3bvo" path="res://hand_manager.gd" id="1_cmdsa"]
+[ext_resource type="Theme" uid="uid://b1k4gvfetv1i6" path="res://textures/themes/discard.tres" id="2_k7pjy"]
+
+[node name="Hand" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmdsa")
+hand = []
+
+[node name="Discard" type="Button" parent="."]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 511.0
+offset_right = 1127.0
+offset_bottom = 630.0
+theme = ExtResource("2_k7pjy")
+text = "Discard"
+
+[connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]

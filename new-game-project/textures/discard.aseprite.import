@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs35mh8kqr67v"
-path="res://.godot/imported/HeartStone.aseprite-0c7ae4e808da2de62dcd34d6a3866025.ctex"
+uid="uid://scugg5mq0sjn"
+path="res://.godot/imported/discard.aseprite-5e6d92710754b4c86c7613350bd40042.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/HeartStone.aseprite"
-dest_files=["res://.godot/imported/HeartStone.aseprite-0c7ae4e808da2de62dcd34d6a3866025.ctex"]
+source_file="res://textures/discard.aseprite"
+dest_files=["res://.godot/imported/discard.aseprite-5e6d92710754b4c86c7613350bd40042.ctex"]
 
 [params]
 

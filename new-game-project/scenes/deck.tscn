@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://d014ufs7v4xb7"]
+
+[ext_resource type="Script" uid="uid://battfxi4ysu31" path="res://deck.gd" id="1_sdhao"]
+
+[sub_resource type="Curve2D" id="Curve2D_sdhao"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 168, 349, 0, 0, 0, 0, 920, 351)
+}
+point_count = 2
+
+[node name="Deck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sdhao")
+full_deck = []
+
+[node name="ViewDeck" type="Button" parent="."]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 29.0
+offset_right = 1126.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 128
+text = "View Deck"
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_sdhao")
+
+[connection signal="pressed" from="ViewDeck" to="." method="_on_view_deck_pressed"]

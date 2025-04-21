@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b1k4gvfetv1i6"]
+
+[ext_resource type="Texture2D" uid="uid://scugg5mq0sjn" path="res://textures/discard.aseprite" id="1_hqaan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4y0w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfqb3"]
+texture = ExtResource("1_hqaan")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f8thg"]
+texture = ExtResource("1_hqaan")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ppp1w"]
+texture = ExtResource("1_hqaan")
+
+[resource]
+Button/font_sizes/font_size = 128
+Button/styles/focus = SubResource("StyleBoxEmpty_o4y0w")
+Button/styles/hover = SubResource("StyleBoxTexture_pfqb3")
+Button/styles/normal = SubResource("StyleBoxTexture_f8thg")
+Button/styles/pressed = SubResource("StyleBoxTexture_ppp1w")
