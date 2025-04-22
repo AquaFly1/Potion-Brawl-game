@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d014ufs7v4xb7"]
+[gd_scene load_steps=6 format=3 uid="uid://d014ufs7v4xb7"]
 
 [ext_resource type="Script" uid="uid://battfxi4ysu31" path="res://deck.gd" id="1_sdhao"]
+[ext_resource type="Script" uid="uid://llbrnwtr0fw6" path="res://scripts/Ingredient.gd" id="2_er72m"]
+[ext_resource type="Resource" uid="uid://csj1igu25cit" path="res://scripts/Ingredients/Heartstone.tres" id="3_d715x"]
+[ext_resource type="Resource" uid="uid://1nsnqp78ei5r" path="res://scripts/Ingredients/SparkRock.tres" id="4_aowtv"]
 
 [sub_resource type="Curve2D" id="Curve2D_sdhao"]
 _data = {
@@ -16,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sdhao")
-full_deck = []
+full_deck = Array[ExtResource("2_er72m")]([ExtResource("3_d715x"), ExtResource("3_d715x"), ExtResource("3_d715x"), ExtResource("3_d715x"), ExtResource("4_aowtv"), ExtResource("4_aowtv"), ExtResource("4_aowtv")])
 
 [node name="ViewDeck" type="Button" parent="."]
 layout_mode = 0

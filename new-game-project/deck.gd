@@ -1,14 +1,18 @@
 extends Control
 
-@export var full_deck = [CardBase]
+@export var full_deck: Array[Ingredient]
 
 @onready var card_path: Path2D = $Path2D
 
+var hs = preload("res://scripts/Ingredients/Heartstone.tres")
+var sr = preload("res://scripts/Ingredients/SparkRock.tres")
 func _ready() -> void:
-	pass
+	full_deck = [hs, hs, hs, sr, sr]
 
-func shuffle_deck(deck):
-	return deck.shuffle()
+func shuffle_deck(deck) -> Array[Ingredient]:
+	deck = full_deck
+	var shuffled_deck = deck
+	return shuffled_deck
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -7,7 +7,11 @@ class_name CardBase
 @export var ingredient: Resource
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sprite.texture = ingredient.sprite
+	pass
 
 func play_card():
 	pass
+	
+func load_card(resource):
+	ingredient = resource
+	sprite.texture = ingredient.sprite

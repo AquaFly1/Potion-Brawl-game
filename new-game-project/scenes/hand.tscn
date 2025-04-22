@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://x5co1s2dd4ac"]
+[gd_scene load_steps=4 format=3 uid="uid://x5co1s2dd4ac"]
 
 [ext_resource type="Script" uid="uid://yc0iiphd3bvo" path="res://hand_manager.gd" id="1_cmdsa"]
 [ext_resource type="Theme" uid="uid://b1k4gvfetv1i6" path="res://textures/themes/discard.tres" id="2_k7pjy"]
+
+[sub_resource type="Curve2D" id="Curve2D_cmdsa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 801, 521, 0, 0, 0, 0, 192, 522)
+}
+point_count = 2
 
 [node name="Hand" type="Control"]
 layout_mode = 3
@@ -11,7 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cmdsa")
-hand = []
 
 [node name="Discard" type="Button" parent="."]
 layout_mode = 0
@@ -21,5 +26,8 @@ offset_right = 1127.0
 offset_bottom = 630.0
 theme = ExtResource("2_k7pjy")
 text = "Discard"
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cmdsa")
 
 [connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
