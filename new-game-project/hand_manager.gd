@@ -17,10 +17,9 @@ func _ready() -> void:
 		card_path.add_child(card_follow)
 		card_follow.add_child(card_image)
 		card_image.load_card(hand[i])
-		var lenght = 1/card_path.get_child_count()
 		for child in card_path.get_children():
 			print(child.get_index()+1)
-			child.progress_ratio = lenght * (child.get_index() +1)
+			child.progress_ratio = child.get_index()/hand_size
 	
 
 
