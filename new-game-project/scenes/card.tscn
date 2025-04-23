@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2nhpsrcahw5w"]
+[gd_scene load_steps=3 format=3 uid="uid://d2nhpsrcahw5w"]
 
 [ext_resource type="Script" uid="uid://dga4w0en7x5xi" path="res://scripts/card.gd" id="1_kikvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktuci"]
+size = Vector2(100, 139)
 
 [node name="card" type="Control"]
 custom_minimum_size = Vector2(100, 140)
@@ -19,3 +22,9 @@ custom_minimum_size = Vector2(100, 140)
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 140.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(50, 69.5)
+shape = SubResource("RectangleShape2D_ktuci")

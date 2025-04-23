@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://x5co1s2dd4ac"]
+[gd_scene load_steps=5 format=3 uid="uid://x5co1s2dd4ac"]
 
 [ext_resource type="Script" uid="uid://yc0iiphd3bvo" path="res://hand_manager.gd" id="1_cmdsa"]
 [ext_resource type="Theme" uid="uid://b1k4gvfetv1i6" path="res://textures/themes/discard.tres" id="2_k7pjy"]
@@ -8,6 +8,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 801, 521, 303.468, -54.571, -303.468, 54.571, 192, 522)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdsa"]
+size = Vector2(263, 100)
 
 [node name="Hand" type="Control"]
 layout_mode = 3
@@ -41,4 +44,11 @@ offset_right = 1060.0
 offset_bottom = 635.0
 alignment = 1
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1000, 97)
+shape = SubResource("RectangleShape2D_cmdsa")
+
 [connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
