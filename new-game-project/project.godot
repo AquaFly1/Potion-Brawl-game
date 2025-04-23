@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="PotionBrawlGame"
 run/main_scene="uid://d014ufs7v4xb7"
 config/features=PackedStringArray("4.4", "Mobile")
 

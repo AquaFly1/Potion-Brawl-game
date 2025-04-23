@@ -34,9 +34,9 @@ curve = SubResource("Curve2D_cmdsa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 491.0
-offset_right = 949.0
+offset_left = 94.0
+offset_top = 472.0
+offset_right = 1060.0
 offset_bottom = 635.0
 alignment = 1
 
