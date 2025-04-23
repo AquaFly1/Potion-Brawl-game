@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_cmdsa"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 801, 521, 0, 0, 0, 0, 192, 522)
+"points": PackedVector2Array(0, 0, 0, 0, 801, 521, 303.468, -54.571, -303.468, 54.571, 192, 522)
 }
 point_count = 2
 
@@ -20,14 +20,24 @@ script = ExtResource("1_cmdsa")
 
 [node name="Discard" type="Button" parent="."]
 layout_mode = 0
-offset_left = 856.0
-offset_top = 511.0
-offset_right = 1127.0
-offset_bottom = 630.0
+offset_left = 862.0
+offset_top = 34.0
+offset_right = 1133.0
+offset_bottom = 153.0
 theme = ExtResource("2_k7pjy")
 text = "Discard"
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-16, 70)
+scale = Vector2(1.18555, 1)
 curve = SubResource("Curve2D_cmdsa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 491.0
+offset_right = 949.0
+offset_bottom = 635.0
+alignment = 1
 
 [connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
