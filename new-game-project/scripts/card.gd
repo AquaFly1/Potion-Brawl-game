@@ -23,10 +23,11 @@ func _gui_input(event: InputEvent) -> void:
 				drag_offset = get_global_mouse_position() - global_position
 			else:
 				is_grabbed = false
-				
+				pivot_offset = Vector2(0,0)
 	elif event is InputEventMouseMotion and is_grabbed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position", get_global_mouse_position()- drag_offset, 0.1)
+		pivot_offset = get_global_mouse_position()
 		tween.set_ease(Tween.EASE_OUT)
 		
 
@@ -35,8 +36,9 @@ func _process(delta: float) -> void:
 	var distance = global_position.distance_to(previous_pos)
 	speed = distance/delta
 	previous_pos = global_position
+	var tween = get_tree().create_tween()
 	if not is_grabbed:
-		var tween = get_tree().create_tween()
+		
 		tween.tween_property(self, "position", target, 1)
 	if movement.x > 0:
 		rotation_degrees = speed/100
