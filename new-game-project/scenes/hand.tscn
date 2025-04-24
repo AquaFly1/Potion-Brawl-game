@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://x5co1s2dd4ac"]
+[gd_scene load_steps=4 format=3 uid="uid://x5co1s2dd4ac"]
 
 [ext_resource type="Script" uid="uid://yc0iiphd3bvo" path="res://hand_manager.gd" id="1_cmdsa"]
 [ext_resource type="Theme" uid="uid://b1k4gvfetv1i6" path="res://textures/themes/discard.tres" id="2_k7pjy"]
 
 [sub_resource type="Curve2D" id="Curve2D_cmdsa"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 801, 521, 303.468, -54.571, -303.468, 54.571, 192, 522)
+"points": PackedVector2Array(303.468, -54.571, 0, 0, 380.518, 512.943, -194.567, -34.4759, 194.567, 34.4759, 717.789, 511.132)
 }
 point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdsa"]
-size = Vector2(263, 100)
 
 [node name="Hand" type="Control"]
 layout_mode = 3
@@ -23,32 +20,25 @@ script = ExtResource("1_cmdsa")
 
 [node name="Discard" type="Button" parent="."]
 layout_mode = 0
-offset_left = 862.0
-offset_top = 34.0
-offset_right = 1133.0
-offset_bottom = 153.0
+offset_left = 827.0
+offset_top = 28.0
+offset_right = 1098.0
+offset_bottom = 147.0
 mouse_filter = 1
 theme = ExtResource("2_k7pjy")
 text = "Discard"
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-16, 70)
-scale = Vector2(1.18555, 1)
+position = Vector2(-88, -260)
+scale = Vector2(1.20081, 1.65621)
 curve = SubResource("Curve2D_cmdsa")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 472.0
-offset_right = 1060.0
-offset_bottom = 635.0
-alignment = 1
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 528.0
+offset_right = 1002.0
+offset_bottom = 626.0
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1000, 97)
-shape = SubResource("RectangleShape2D_cmdsa")
-
-[connection signal="pressed" from="Discard" to="." method="_on_discard_pressed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="mouse_entered" from="Discard" to="." method="_on_discard_mouse_entered"]
+[connection signal="mouse_exited" from="Discard" to="." method="_on_discard_mouse_exited"]

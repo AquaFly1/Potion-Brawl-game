@@ -6,6 +6,8 @@ extends Control
 
 var hs = preload("res://scripts/Ingredients/Heartstone.tres")
 var sr = preload("res://scripts/Ingredients/SparkRock.tres")
+signal card_released(card: CardBase)
+
 func _ready() -> void:
 	full_deck = [hs, hs, hs, sr, sr]
 
@@ -28,3 +30,7 @@ func _on_view_deck_pressed() -> void:
 		var lenght = 1/card_path.get_child_count()
 		for child in card_path.get_children():
 			child.progress_ratio = lenght * (child.get_index() +1)
+			
+func wait(sec: float):
+	await get_tree().create_timer(sec).timeout
+	return

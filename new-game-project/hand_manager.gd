@@ -5,44 +5,41 @@ var hand_size = 3
 @onready var card_path: Path2D = $Path2D
 @onready var container: HBoxContainer = $HBoxContainer
 @onready var discard: Area2D = $Area2D
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
 var deck = []
 var card = preload("res://scenes/card.tscn")
-
+var has_card = false
+var mouse_on_discard = false
 func _ready() -> void:
 	deck = Deck.shuffle_deck(Deck.full_deck)
 	draw_card(hand_size)
+	Deck.card_released.connect(release_card)
 	for i in range(hand.size()):
+		var card_follow = PathFollow2D.new()
 		var card_image = card.instantiate()
-		container.add_child(card_image)
+		card_path.add_child(card_follow)
+		card_follow.add_child(card_image)
 		card_image.load_card(hand[i])
-		
-#	for i in range(hand.size()):
-#		var card_follow = PathFollow2D.new()
-#		var card_image = card.instantiate()
-#		card_path.add_child(card_follow)
-#		card_follow.add_child(card_image)
-#		card_image.load_card(hand[i])
-#		for child in card_path.get_children():
-#			child.progress_ratio = (child.get_index()+1)/hand_size
-	
-
+		card_follow.progress_ratio = float(i)/float(hand_size - 1)
+		card_image.target = card_follow.position
+#		card_image.rotation = card_follow.rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if discard.has_overlapping_bodies():
-		print("b")
+	pass
 
-func _on_discard_pressed() -> void:
-	
-	print("a")
+func release_card(card: CardBase):
+	if mouse_on_discard:
+		print("discard")
 
 func draw_card(x: int):
 	for i in range(x):
 		hand.append(deck.pop_front())
 
+func _on_discard_mouse_entered() -> void:
+	mouse_on_discard = true
+	print("B")
 
-func _on_area_2d_body_entered(body: CardBase) -> void:
-	print("discard")
-	
+func _on_discard_mouse_exited() -> void:
+#	mouse_on_discard = false
+	print("A")
