@@ -4,10 +4,11 @@ var hand_size = 3
 @export var hand: Array[Ingredient]
 @onready var card_path: Path2D = $Path2D
 @onready var container: HBoxContainer = $HBoxContainer
-@onready var discard: Area2D = $Area2D
+@onready var discard: Button = $Discard
 
 var deck = []
 var card = preload("res://scenes/card.tscn")
+var discard_pile = []
 var has_card = false
 var mouse_on_discard = false
 func _ready() -> void:
@@ -30,7 +31,9 @@ func _process(delta: float) -> void:
 
 func release_card(card: CardBase):
 	if mouse_on_discard:
-		print("discard")
+		if discard.has_overlapping_bodies():
+			discard_pile.append(hand.pop_at(discard.get_overlapping_bodies()))
+			print(discard_pile)
 
 func draw_card(x: int):
 	for i in range(x):
