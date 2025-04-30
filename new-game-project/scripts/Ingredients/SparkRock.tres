@@ -8,4 +8,5 @@ script = ExtResource("1_bmby5")
 ing_name = "SparkRock"
 effect = Array[String]([])
 sprite = ExtResource("2_emkka")
+damage = 1
 metadata/_custom_type_script = "uid://llbrnwtr0fw6"

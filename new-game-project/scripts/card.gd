@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 		rotation_degrees = speed/100
 
 func play_card():
-	pass
+	return ingredient.damage
 	
 func load_card(resource):
 	ingredient = resource

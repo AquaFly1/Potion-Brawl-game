@@ -8,4 +8,5 @@ script = ExtResource("1_1jhqp")
 ing_name = "Heartstone"
 effect = Array[String]([])
 sprite = ExtResource("2_q7scy")
+damage = -1
 metadata/_custom_type_script = "uid://llbrnwtr0fw6"
