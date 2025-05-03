@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://roj6bgwaulpm"]
+
+[ext_resource type="Script" uid="uid://tdf3tf65yas" path="res://enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://bketmitcasuud" path="res://scripts/Potions.gd" id="2_4ra3w"]
+[ext_resource type="Resource" uid="uid://cxensmka8nahr" path="res://scripts/potions/Healing_pot.tres" id="3_5uy6h"]
+
+[node name="Enemy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7p1mj")
+potions = Array[ExtResource("2_4ra3w")]([ExtResource("3_5uy6h")])
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 17.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
