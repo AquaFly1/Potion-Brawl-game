@@ -4,6 +4,7 @@ var hand_size = 3
 @export var hand: Array[Ingredient]
 @onready var card_path: Path2D = $Path2D
 @onready var discard: Button = $Discard
+@onready var hand_cont: HBoxContainer = $HBoxContainer
 
 var deck = []
 var card = preload("res://scenes/card.tscn")
@@ -17,8 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_left"):
-		print("allo")
+	pass
 
 func release_card(card: CardBase):
 	if mouse_on_discard:
@@ -40,10 +40,12 @@ func _on_discard_mouse_exited() -> void:
 	pass
 
 func load_cards(cards, pos):
-	var card_follow = PathFollow2D.new()
+#	var card_follow = PathFollow2D.new()
 	var card_image = card.instantiate()
-	card_path.add_child(card_follow)
-	card_follow.add_child(card_image)
+	hand_cont.add_child(card_image)
 	card_image.load_card(hand[pos])
-	card_follow.progress_ratio = float(pos)/float(hand.size() - 1)
-	card_image.target = card_follow.position
+#	card_path.add_child(card_follow)
+#	card_follow.add_child(card_image)
+#	card_image.load_card(hand[pos])
+#	card_follow.progress_ratio = float(pos)/float(hand.size() - 1)
+#	card_image.target = card_follow.position

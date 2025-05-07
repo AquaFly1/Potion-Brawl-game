@@ -40,5 +40,13 @@ offset_top = 528.0
 offset_right = 1002.0
 offset_bottom = 626.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 513.0
+offset_right = 830.0
+offset_bottom = 632.0
+alignment = 1
+
 [connection signal="mouse_entered" from="Discard" to="." method="_on_discard_mouse_entered"]
 [connection signal="mouse_exited" from="Discard" to="." method="_on_discard_mouse_exited"]
