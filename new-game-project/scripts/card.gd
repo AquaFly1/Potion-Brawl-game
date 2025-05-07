@@ -47,4 +47,7 @@ func play_card():
 	
 func load_card(resource):
 	ingredient = resource
-	sprite.texture = ingredient.sprite
+	if sprite and ingredient.sprite:
+		sprite.texture = ingredient.sprite
+	else:
+		print("Sprite or ingredient sprite is null")

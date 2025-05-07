@@ -9,6 +9,7 @@ var hand_size = 3
 var deck = []
 var card = preload("res://scenes/card.tscn")
 var discard_pile = []
+var cards = []
 var has_card = false
 var mouse_on_discard = false
 func _ready() -> void:
@@ -18,7 +19,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for i in range(cards.size()):
+		cards[i].target = get_card_pos(i)
 
 func release_card(card: CardBase):
 	if mouse_on_discard:
@@ -30,24 +32,27 @@ func release_card(card: CardBase):
 
 func draw_card(x: int):
 	for i in range(x):
+		print(deck[0])
 		hand.append(deck.pop_front())
-		load_cards(hand[i], i)
+		load_cards(i)
 
 func _on_discard_mouse_entered() -> void:
-	mouse_on_discard = true
-
+	#mouse_on_discard = true
+	pass
 func _on_discard_mouse_exited() -> void:
 #	mouse_on_discard = false
 	pass
 
-func load_cards(cards, pos):
+func load_cards(pos):
 	var card_image = card.instantiate()
+	add_child(card_image)
+	cards.append(card_image)
 	card_image.load_card(hand[pos])
 	card_image.target = get_card_pos(pos)
 
 
 func get_card_pos(index):
-	var x_offset = 420/hand.size()+1
+	var x_offset = 420/hand.size()
 	var x_pos = 365 + index*x_offset
-	var y_pos = -0.01*pow(x_pos, 2) + 1
+	var y_pos = 0.0001*(pow((x_pos), 2)) + 500
 	return Vector2(x_pos, y_pos)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2nhpsrcahw5w"]
+[gd_scene load_steps=3 format=3 uid="uid://d2nhpsrcahw5w"]
 
 [ext_resource type="Script" uid="uid://dga4w0en7x5xi" path="res://scripts/card.gd" id="1_kikvd"]
+[ext_resource type="Texture2D" uid="uid://cs35mh8kqr67v" path="res://textures/cards/HeartStone.aseprite" id="2_6u4wf"]
 
 [node name="card" type="Control"]
 top_level = true
@@ -15,6 +16,7 @@ offset_bottom = -508.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kikvd")
+ingredient = ExtResource("2_6u4wf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 140)
