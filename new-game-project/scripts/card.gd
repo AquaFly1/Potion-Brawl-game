@@ -6,6 +6,7 @@ class_name CardBase
 var is_grabbed = false
 var drag_offset = Vector2(0,0)
 var target = Vector2(1030, 480)
+var target_rotation = 0
 @export var ingredient: Resource
 var movement = 0
 var previous_pos = Vector2.ZERO
@@ -38,7 +39,8 @@ func _process(delta: float) -> void:
 	if not is_grabbed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", target, 0.5)
-		rotation_degrees = 0
+		var tween2 = get_tree().create_tween()
+		tween2.tween_property(self, "rotation_degrees", target_rotation, 0.5)
 	else:
 		rotation_degrees = speed/100
 

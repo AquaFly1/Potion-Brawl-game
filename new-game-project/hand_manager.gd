@@ -20,7 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for i in range(cards.size()):
-		cards[i].target = get_card_pos(i)
+		cards[i].target = get_card_pos(i)[0]
+		cards[i].target_rotation = get_card_pos(i)[1]
 
 func release_card(card: CardBase):
 	if mouse_on_discard:
@@ -48,11 +49,13 @@ func load_cards(pos):
 	add_child(card_image)
 	cards.append(card_image)
 	card_image.load_card(hand[pos])
-	card_image.target = get_card_pos(pos)
+	card_image.target = get_card_pos(pos)[0]
+	card_image.target_rotation = get_card_pos(pos)[1]
 
 
 func get_card_pos(index):
 	var x_offset = 420/hand.size()
 	var x_pos = 365 + index*x_offset
-	var y_pos = 0.0001*(pow((x_pos), 2)) + 500
-	return Vector2(x_pos, y_pos)
+	var y_pos = 0.001*(pow((x_pos-(365+x_offset)), 2)) + 500
+	var rot = 2.6*(x_pos-(365+x_offset))
+	return [Vector2(x_pos, y_pos), rot]
