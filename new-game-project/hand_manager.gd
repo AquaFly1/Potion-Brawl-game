@@ -22,9 +22,10 @@ func _process(delta: float) -> void:
 	for i in range(cards.size()):
 		cards[i].target = get_card_pos(i)[0]
 		cards[i].target_rotation = get_card_pos(i)[1]
+	print(get_global_mouse_position())
 
 func release_card(card: CardBase):
-	if mouse_on_discard:
+	if mouse_on_disc():
 		discard_pile.append(card.ingredient)
 		card.queue_free()
 		hand.pop_at(0)
@@ -33,16 +34,8 @@ func release_card(card: CardBase):
 
 func draw_card(x: int):
 	for i in range(x):
-		print(deck[0])
 		hand.append(deck.pop_front())
 		load_cards(i)
-
-func _on_discard_mouse_entered() -> void:
-	#mouse_on_discard = true
-	pass
-func _on_discard_mouse_exited() -> void:
-#	mouse_on_discard = false
-	pass
 
 func load_cards(pos):
 	var card_image = card.instantiate()
@@ -59,3 +52,12 @@ func get_card_pos(index):
 	var y_pos = 0.001*(pow((x_pos-(365+x_offset)), 2)) + 500
 	var rot = 2.6*(x_pos-(365+x_offset))
 	return [Vector2(x_pos, y_pos), rot]
+
+func mouse_on_disc():
+	if get_global_mouse_position().x >= 825 and get_global_mouse_position().x <= 1095:
+		if get_global_mouse_position().y >= 28 and get_global_mouse_position().y <= 147:
+			return true
+		else:
+			return false
+	else:
+		return false
