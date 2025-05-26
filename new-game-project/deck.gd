@@ -7,6 +7,7 @@ extends Control
 var hs = preload("res://scripts/Ingredients/Heartstone.tres")
 var sr = preload("res://scripts/Ingredients/SparkRock.tres")
 signal card_released(card: CardBase)
+signal card_select(card: CardBase)
 
 func _ready() -> void:
 	full_deck = [hs, hs, hs, sr, sr]

@@ -20,15 +20,16 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				is_grabbed = true
-				drag_offset = get_global_mouse_position() - global_position
-			else:
-				is_grabbed = false
-				Deck.card_released.emit(self)
+				Deck.card_select.emit(self)
+				#is_grabbed = true
+				#drag_offset = get_global_mouse_position() - global_position
+			#else:
+				#is_grabbed = false
+				#Deck.card_released.emit(self)
 				#pivot_offset = Vector2(0,0)
-	elif event is InputEventMouseMotion and is_grabbed:
-		var tween = get_tree().create_tween()
-		tween.tween_property(self, "global_position", get_global_mouse_position()- drag_offset, 0.1)
+	#elif event is InputEventMouseMotion and is_grabbed:
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(self, "global_position", get_global_mouse_position()- drag_offset, 0.1)
 		#pivot_offset = get_global_mouse_position()
 		
 
@@ -36,13 +37,10 @@ func _process(delta: float) -> void:
 	movement = position - previous_pos
 	speed = movement.x/delta
 	previous_pos = position
+	rotation_degrees = speed/100
 	if not is_grabbed:
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", target, 0.5)
-		var tween2 = get_tree().create_tween()
-		tween2.tween_property(self, "rotation_degrees", target_rotation, 0.5)
-	else:
-		rotation_degrees = speed/100
 
 func play_card():
 	return ingredient.damage
