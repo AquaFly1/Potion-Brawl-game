@@ -25,9 +25,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	for i in range(cards.size()):
-		if is_instance_valid(cards[i]):
-			cards[i].target = get_card_pos(i)
+#	for i in range(cards.size()):
+#		if is_instance_valid(cards[i]):
+#			cards[i].target = get_card_pos(i)
 
 func release_card(card: CardBase):
 	pass
@@ -49,9 +49,14 @@ func draw_card(x: int):
 
 func load_cards(pos):
 	var card_image = card.instantiate()
-	cards.append(card_image)
+#	cards.append(card_image)
+#	card_image.load_card(hand[pos])
+	var card_follow = PathFollow2D.new()
+	card_path.add_child(card_follow)
+	card_follow.add_child(card_image)
+	card_image.position = card_follow.position
+	card_follow.progress_ratio = float(pos+1)/float(hand.size()+1)
 	card_image.load_card(hand[pos])
-	
 
 
 func get_card_pos(index):
