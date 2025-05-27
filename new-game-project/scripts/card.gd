@@ -37,10 +37,10 @@ func _process(delta: float) -> void:
 	movement = position - previous_pos
 	speed = movement.x/delta
 	previous_pos = position
-	rotation_degrees = speed/100
-	if not is_grabbed:
-		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position", target, 0.5)
+#	rotation_degrees = speed/100
+#	if not is_grabbed:
+#		var tween = get_tree().create_tween()
+#		tween.tween_property(self, "position", target, 0.5)
 
 func play_card():
 	return ingredient.damage

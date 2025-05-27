@@ -6,6 +6,7 @@ var hand_size = 3
 @onready var card_path: Path2D = $Path2D
 @onready var discard: Button = $Discard
 @onready var hand_cont: HBoxContainer = $HBoxContainer
+@onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
 
 var deck = []
 var card = preload("res://scenes/card.tscn")
@@ -23,35 +24,39 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for i in range(cards.size()):
-		if is_instance_valid(cards[i]):
-			cards[i].target = get_card_pos(i)
+	pass
+#	for i in range(cards.size()):
+#		if is_instance_valid(cards[i]):
+#			cards[i].target = get_card_pos(i)
 
 func release_card(card: CardBase):
-	if mouse_on_discard:
-		discard_pile.append(card.ingredient)
-		hand.erase(card)
-		card.queue_free()
-		draw_card(1)
+	pass
+#	if mouse_on_discard:
+#		discard_pile.append(card.ingredient)
+#		hand.erase(card)
+#		card.queue_free()
+#		draw_card(1)
 		
 func card_select(card: CardBase):
 	selected_card = card
+	card.get_parent().v_offset = -1000
 
 func draw_card(x: int):
 	for i in range(x):
 		hand.append(deck.pop_front())
+	for i in range(x):
 		load_cards(i)
 
 func load_cards(pos):
 	var card_image = card.instantiate()
-	cards.append(card_image)
-	card_image.load_card(hand[pos])
+#	cards.append(card_image)
+#	card_image.load_card(hand[pos])
 	var card_follow = PathFollow2D.new()
 	card_path.add_child(card_follow)
 	card_follow.add_child(card_image)
-	card_follow.progress_ratio = (pos+1)/(hand.size() + 1)
-	
-	#card_image.load_card(hand[pos])
+	card_image.position = card_follow.position
+	card_follow.progress_ratio = float(pos+1)/float(hand.size()+1)
+	card_image.load_card(hand[pos])
 
 
 func get_card_pos(index):
