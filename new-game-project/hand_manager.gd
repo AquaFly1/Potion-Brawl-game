@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 	for i in range(cards.size()):
 		cards[i].target = get_card_pos(i)[0]
 		cards[i].target_rotation = get_card_pos(i)[1]
-	print(get_global_mouse_position())
 
 func release_card(card: CardBase):
 	if mouse_on_disc():
