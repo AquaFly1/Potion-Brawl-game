@@ -29,8 +29,8 @@ theme = ExtResource("2_k7pjy")
 text = "Discard"
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-415, -242)
-scale = Vector2(1.82028, 1.65621)
+position = Vector2(-88, -260)
+scale = Vector2(1.20081, 1.65621)
 curve = SubResource("Curve2D_cmdsa")
 
 [node name="Control" type="Control" parent="."]
