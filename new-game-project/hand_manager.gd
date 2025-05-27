@@ -44,9 +44,14 @@ func draw_card(x: int):
 
 func load_cards(pos):
 	var card_image = card.instantiate()
-	add_child(card_image)
 	cards.append(card_image)
 	card_image.load_card(hand[pos])
+	var card_follow = PathFollow2D.new()
+	card_path.add_child(card_follow)
+	card_follow.add_child(card_image)
+	card_follow.progress_ratio = (pos+1)/(hand.size() + 1)
+	
+	#card_image.load_card(hand[pos])
 
 
 func get_card_pos(index):
